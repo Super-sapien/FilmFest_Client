@@ -1,0 +1,1 @@
+export const BASE_URL="https://seashell-app-g2v7t.ondigitalocean.app/api/v1";
