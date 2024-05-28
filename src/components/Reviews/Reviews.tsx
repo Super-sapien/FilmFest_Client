@@ -7,14 +7,12 @@ import {BASE_URL} from "../../config";
 
 const Reviews = ({film}: {film: Film}) => {
     const [reviews, setReviews] = React.useState<Review[]>([])
-    // const [film, setFilm] = React.useState<Film>()
     const [errorFlag, setErrorFlag] = React.useState(false)
     const [errorMessage, setErrorMessage] = React.useState("")
 
     const getReviews = async () => {
         await axios.get(`${BASE_URL}/films/${film.filmId}/reviews`)
             .then((response) => {
-                //console.log(response.data)
                 setErrorFlag(false)
                 setErrorMessage("")
                 setReviews(response.data)
@@ -36,7 +34,6 @@ const Reviews = ({film}: {film: Film}) => {
                     <ReviewCard key={item.reviewerId} review={item} film={film} ></ReviewCard>
                 )
             })
-
     }
 
     if (errorFlag) {
@@ -52,7 +49,7 @@ const Reviews = ({film}: {film: Film}) => {
             </>
         )
     }
-
+    
 }
 
 export default Reviews;
